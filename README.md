@@ -20,6 +20,5 @@ docker run -d \
 
 ## Links
 
-[1] https://github.com/philippe44/AirConnect
-
+[1] https://github.com/philippe44/AirConnect \
 [2] https://hub.docker.com/r/resin/rpi-raspbian
