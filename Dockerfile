@@ -17,6 +17,6 @@ RUN [ "cross-build-end" ]
 ### End QEMU ARM emulation
 
 # HEALTHCHECK --interval=1m --timeout=2s \
-#  CMD curl -LSs http://localhost:5005 || exit 1
+#  TBD
 
 CMD /airupnp-arm
