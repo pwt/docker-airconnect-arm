@@ -19,4 +19,4 @@ RUN [ "cross-build-end" ]
 # HEALTHCHECK --interval=1m --timeout=2s \
 #  TBD
 
-CMD /airupnp-arm
+CMD /airupnp-arm -l 1000:2000
