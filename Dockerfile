@@ -17,7 +17,7 @@ RUN [ "cross-build-end" ]
 ### End QEMU ARM emulation
 
 # Pull in the config file
-ADD ./config.xml /config.xml
+# ADD ./config.xml /config.xml
 
 # HEALTHCHECK --interval=1m --timeout=2s \
 #  TBD
