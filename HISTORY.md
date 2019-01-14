@@ -1,0 +1,1 @@
+- 2019-01-14: Force image update for AirConnect 0.2.2.6
