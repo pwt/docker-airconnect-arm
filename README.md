@@ -27,6 +27,18 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
+If you subsequently want to update to a more recent version of the image: (1) pull the new image, (2) remove the container, then (3) start a new instance of the container. This will stop any currently-running AirPlay streams.
+
+```
+docker pull psychlist/docker-airconnect-arm
+docker rm --force airconnect
+docker run -d \
+  --net=host \
+  --name=airconnect \
+  --restart=always \
+  psychlist/docker-airconnect-arm
+```
+
 ## Links
 
 [1] https://github.com/philippe44/AirConnect \
