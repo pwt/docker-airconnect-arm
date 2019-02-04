@@ -1,2 +1,3 @@
+- 2019-02-04: Update to v0.2.4.0
 - 2019-01-23: Force image update for AirConnect v0.2.3.1
 - 2019-01-14: Force image update for AirConnect v0.2.2.6
