@@ -5,7 +5,7 @@
         <max_volume>100</max_volume>
         <codec>flac</codec>
         <metadata>1</metadata>
-        <artwork>https://github.com/pwt/docker-airconnect-arm/raw/master/airconnect-logo.png</artwork>
+        <artwork>https://raw.githubusercontent.com/pwt/docker-airconnect-arm/master/airconnect-logo.png</artwork>
         <latency></latency>
     </common>
     <main_log>info</main_log>
