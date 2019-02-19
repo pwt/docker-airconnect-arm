@@ -10,7 +10,7 @@
     </common>
     <main_log>info</main_log>
     <upnp_log>info</upnp_log>
-    <util_log>warn</util_log>
+    <util_log>info</util_log>
     <raop_log>info</raop_log>
-    <log_limit>-1</log_limit>
+    <log_limit>2</log_limit>
 </airupnp>
