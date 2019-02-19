@@ -9,7 +9,7 @@ It has so far been tested on the following Raspberry Pi models:
 
 In order to build for ARM on Docker Hub, the Dockerfile makes use of the *crossbuild* capabilities provided by the Balena Raspbian distribution [2], which allows ARM images to be built under x86. (If you want to use this Dockerfile to build directly on a native ARM device, comment out or delete the two `cross-build` RUN statements.) 
 
-The docker image name is `psychlist/docker-airconnect-arm` on Docker Hub.
+The docker image name is `psychlist/docker-airconnect-arm` on Docker Hub [3].
 
 ## Requirements
 
@@ -42,4 +42,5 @@ docker run -d \
 ## Links
 
 [1] https://github.com/philippe44/AirConnect \
-[2] https://hub.docker.com/u/balenalib/
+[2] https://hub.docker.com/u/balenalib/ \
+[3] https://cloud.docker.com/u/psychlist/repository/docker/psychlist/docker-airconnect-arm
