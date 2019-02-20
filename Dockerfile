@@ -22,4 +22,4 @@ ADD ./config.xml /config.xml
 # HEALTHCHECK --interval=1m --timeout=2s \
 #  TBD
 
-CMD /airupnp-arm -l 1000:2000 -Z
+CMD /airupnp-arm -l 1000:2000 -Z -m PLAY:5,PLAYBASE,BEAM,One,Amp
