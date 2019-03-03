@@ -22,4 +22,8 @@ ADD ./config.xml /config.xml
 # HEALTHCHECK --interval=1m --timeout=2s \
 #  TBD
 
-CMD /airupnp-arm -l 1000:2000 -Z -m PLAYBASE,BEAM,One,Amp
+# Note: Exclude the Sonos players that support AirPlay 2 natively
+# S6 = Play:5 gen 2
+# S16 = Sonos Amp (new model)
+
+CMD /airupnp-arm -l 1000:2000 -Z -m PLAYBASE,BEAM,One -n S6,S16
