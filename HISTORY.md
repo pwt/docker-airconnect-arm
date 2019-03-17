@@ -1,3 +1,4 @@
+- 2019-03-17: Update to v0.2.8.0 (Note: reports as v0.2.7.0)
 - 2019-03-03: Update to v0.2.6.0. Add exclusion for all Sonos Airplay 2 speakers
 - 2019-02-04: Update to v0.2.4.0. Add exclusion for some Sonos Airplay 2 speakers
 - 2019-01-23: Force image update for AirConnect v0.2.3.1
