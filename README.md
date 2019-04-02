@@ -43,4 +43,4 @@ docker run -d \
 
 [1] https://github.com/philippe44/AirConnect \
 [2] https://hub.docker.com/u/balenalib/ \
-[3] https://cloud.docker.com/u/psychlist/repository/docker/psychlist/docker-airconnect-arm
+[3] https://hub.docker.com/r/psychlist/docker-airconnect-arm
