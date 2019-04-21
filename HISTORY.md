@@ -1,3 +1,4 @@
+- 2019-04-21: Restore input buffer to 1000ms
 - 2019-04-21: Update to v0.2.9.0 (Note: no functional changes to airupnp; aircast only)
               Halve the buffering delays 
 - 2019-03-17: Update to v0.2.8.0 (Note: reports as v0.2.7.0)
