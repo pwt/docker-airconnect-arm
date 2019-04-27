@@ -1,6 +1,6 @@
 # Docker Container Build of *AirConnect* for Raspberry Pi
 
-This Dockerfile builds a docker container version of the excellent AirConnect [1] utility, suitable for use on a Raspberry Pi. It starts only the `airupnp-arm` service to enable AirPlay for any and all Sonos speakers and devices. This version is configured to exclude Sonos players that have native AirPlay 2 capability, preventing duplicate AirPlay entries for the same players.
+This Dockerfile builds a docker container version of the excellent AirConnect [1] utility, suitable for use on a Raspberry Pi. It starts only the `airupnp-arm` service to enable AirPlay for any and all Sonos speakers and devices. The service is configured to exclude Sonos players that have native AirPlay 2 capability, preventing duplicate AirPlay entries for the same players.
 
 It has so far been tested on the following Raspberry Pi models:
 
