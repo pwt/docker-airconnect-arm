@@ -1,4 +1,4 @@
-- 2019-06-03: Update to v0.2.19.2 (No known functional changes for airupnp)
+- 2019-06-03: Update to v0.2.10.2 (No known functional changes for airupnp)
 - 2019-05-25: Update to v0.2.10.1 (No known functional changes)
 - 2019-05-09: Update to v0.2.10 (No relevant functional changes)
 - 2019-04-21: Restore input buffer to 1000ms
