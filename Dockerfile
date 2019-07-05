@@ -13,16 +13,16 @@ RUN apt-get update && \
     wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/airupnp-arm && \
     chmod +x airupnp-arm
 
-RUN [ "cross-build-end" ]
-### End QEMU ARM emulation
-
 # setconfig.sh dynamically creates the config.xml file, using environment variables
 # (if present) to override defaults
 ADD ./setconfig.sh setconfig.sh
 RUN chmod +x setconfig.sh
 
+RUN [ "cross-build-end" ]
+### End QEMU ARM emulation
+
 # Note: Exclude the Sonos players that support AirPlay 2 natively
 # S6 = Play:5 gen 2
 # S16 = Sonos Amp (new model)
 CMD ./setconfig.sh > config.xml ; \
-    ./airupnp-arm -x config.xml -Z -m PLAYBASE,BEAM,One -n S6,S16
+    ./airupnp-arm -x config.xml -Z -m PLAYBASE,BEAM,One -n S6,S16 

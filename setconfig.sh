@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Dynamically-generated config.xml file
+# Dynamically-generates the config.xml file
 
 # Various settings below will be obtained from the environment if the variables are set,
 # otherwise defaults will be used.
