@@ -1,3 +1,4 @@
+- 2019-07-05: Add ability to change config using environment variables
 - 2019-06-03: Update to v0.2.10.2 (No known functional changes for airupnp)
 - 2019-05-25: Update to v0.2.10.1 (No known functional changes)
 - 2019-05-09: Update to v0.2.10 (No relevant functional changes)

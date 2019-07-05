@@ -41,6 +41,26 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
+## Changing the configuration
+
+The container is started with a default configuration that should work well for most Sonos installations. However, configuration settings can be overridden by passing in environment variables to the container when it's started. The available configuration parameters are:
+
+`CODEC, METADATA, LATENCY, DRIFT, MAIN_LOG, UPNP_LOG, UTIL_LOG, RAOP_LOG`
+
+Required environment variables and their values are supplied using the `-e` option as part of the `docker run` command line. So, for example, to change the codec to MP3 @ 256kb/s and to change the latency to 500ms/500ms, use the following command line:
+
+```
+docker run -d \
+  --net=host \
+  --name=airconnect \
+  --restart=always \
+  -e CODEC='mp3:320' \
+  -e LATENCY='500:500:f' \
+  psychlist/docker-airconnect-arm
+```
+
+Take a look at the AirConnect documentation [1] for available options.
+
 ## Links
 
 [1] https://github.com/philippe44/AirConnect \
