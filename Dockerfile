@@ -7,7 +7,7 @@ FROM balenalib/raspberrypi3
 RUN [ "cross-build-start" ]
 
 RUN apt-get update && \
-    apt-get install -y wget && \
+    apt-get install -y wget multiarch-support && \
     wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u11_armhf.deb && \
     dpkg -i libssl1.0.0_1.0.1t-1+deb8u11_armhf.deb && \
     wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/airupnp-arm && \
