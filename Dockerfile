@@ -1,7 +1,8 @@
 # Dockerfile that will build an arm32v7 image on an x86 build host
+# Remove the 'cross-buld' commands to build on a native ARM host
 
+# Balena base image required for cross-build capabilities
 FROM balenalib/raspberrypi3
-# Resin base image required for cross-build capabilities
 
 ### Run commands within QEMU ARM cross-build emulation
 RUN [ "cross-build-start" ]
@@ -11,7 +12,7 @@ RUN apt-get update && \
     wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u11_armhf.deb && \
     dpkg -i libssl1.0.0_1.0.1t-1+deb8u11_armhf.deb && \
 #   Hold AirConnect at v0.2.12.0    
-    wget https://github.com/philippe44/AirConnect/raw/f170e077143ccdb5cefd99b2c25fcbf8925271c5/bin/airupnp-arm && \
+    wget https://raw.githubusercontent.com/philippe44/AirConnect/f170e077143ccdb5cefd99b2c25fcbf8925271c5/bin/airupnp-arm && \
 #   wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/airupnp-arm && \
     chmod +x airupnp-arm
 
