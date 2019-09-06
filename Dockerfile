@@ -26,4 +26,4 @@ RUN [ "cross-build-end" ]
 # S6 = Play:5 gen 2
 # S16 = Sonos Amp (new model)
 CMD ./setconfig.sh > config.xml ; \
-    ./airupnp-arm -x config.xml -Z -m PLAYBASE,BEAM,One,Symfonisk -n S6,S16 
+    ./airupnp-arm -x config.xml -Z -m PLAYBASE,BEAM,One,Symfonisk,Move,Port -n S6,S16 
