@@ -1,3 +1,4 @@
+- 2019-09-18: Update to AirConnect v0.2.20.0
 - 2019-08-31: Update to AirConnect v0.2.13.1
 - 2019-08-21: Update to AirConnect v0.2.12.0
 - 2019-07-05: Add ability to change config using environment variables
