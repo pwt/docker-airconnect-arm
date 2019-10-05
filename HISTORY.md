@@ -1,3 +1,4 @@
+- 2019-10-05: Update to AirConnect v0.2.21.3
 - 2019-09-30: Update to AirConnect v0.2.21.2
 - 2019-09-18: Update to AirConnect v0.2.20.0
 - 2019-08-31: Update to AirConnect v0.2.13.1
