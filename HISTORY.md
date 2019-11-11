@@ -1,3 +1,6 @@
+- 2019-11-11: Update to AirConnect v0.2.22.1
+              Use -o option so that _only_ specific Sonos devices are included
+              Specify base image as Raspbian:Stretch
 - 2019-10-05: Update to AirConnect v0.2.21.3
 - 2019-09-30: Update to AirConnect v0.2.21.2
 - 2019-09-18: Update to AirConnect v0.2.20.0

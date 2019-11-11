@@ -2,9 +2,9 @@
 # Remove the 'cross-buld' commands to build on a native ARM host
 
 # Balena base image required for cross-build capabilities
-FROM balenalib/raspberrypi3
+FROM balenalib/raspberrypi3:stretch
 
-### Run commands within QEMU ARM cross-build emulation
+### Run commands within QEMU ARM cross-build emulation ---------------------------------
 RUN [ "cross-build-start" ]
 
 RUN apt-get update && \
@@ -14,16 +14,17 @@ RUN apt-get update && \
     wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/airupnp-arm && \
     chmod +x airupnp-arm
 
-# setconfig.sh dynamically creates the config.xml file, using environment variables
-# (if present) to override defaults
+# setconfig.sh and setoptions.sh dynamically create the config.xml and options.txt files,
+# using environment variables (if present) to override defaults
 ADD ./setconfig.sh setconfig.sh
-RUN chmod +x setconfig.sh
+ADD ./setoptions.sh setoptions.sh
+RUN chmod +x setconfig.sh setoptions.sh
 
 RUN [ "cross-build-end" ]
-### End QEMU ARM emulation
+### End QEMU ARM emulation -------------------------------------------------------------
 
-# Note: Exclude the Sonos players that support AirPlay 2 natively
-# S6 = Play:5 gen 2
-# S16 = Sonos Amp (new model)
+# First, dynamically generate the config.xml and options.txt files,
+# then run airupnp.
 CMD ./setconfig.sh > config.xml ; \
-    ./airupnp-arm -x config.xml -Z -m PLAYBASE,BEAM,One,Symfonisk,Move,Port -n S6,S16 
+    ./setoptions.sh > options.txt ; \
+    ./airupnp-arm -Z -x config.xml $(cat options.txt)

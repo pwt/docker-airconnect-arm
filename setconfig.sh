@@ -1,4 +1,4 @@
-#!/bin/bash
+ #!/bin/bash
 
 # Dynamically generates the config.xml file
 
