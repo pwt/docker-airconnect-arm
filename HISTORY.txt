@@ -1,3 +1,4 @@
+- 2020-01-04: Update to airupnp v0.2.23.0 (mDNS change)
 - 2019-11-11: Update to AirConnect v0.2.22.1
               Use -o option so that _only_ specific Sonos devices are included
               Specify base image as Raspbian:Stretch
