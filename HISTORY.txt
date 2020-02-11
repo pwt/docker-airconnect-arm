@@ -1,3 +1,4 @@
+- 2020-02-11: Update to airupnp v0.2.24.1
 - 2020-01-06: Update to airupnp v0.2.24.0
 - 2020-01-04: Update to airupnp v0.2.23.0 (mDNS change)
 - 2019-11-11: Update to AirConnect v0.2.22.1
