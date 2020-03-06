@@ -16,7 +16,7 @@ Feedback and suggestions are welcome: feel free to use the issue at [4].
 
 ## Requirements
 
-A working Docker environment. Internet access to pull the Docker image.
+A working Docker environment running on a Raspberry Pi. Internet access to pull the Docker image.
 
 ## Usage
 
