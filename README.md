@@ -1,14 +1,12 @@
 # Add AirPlay to All Sonos Speakers Using AirConnect and Docker on a Raspberry Pi
 
-This project provides a docker container version of the excellent AirConnect [1] utility, suitable for use on a Raspberry Pi, and focused on Sonos speakers. It starts the `airupnp-arm` service to enable AirPlay for any and all Sonos speakers and devices. The service is configured to exclude Sonos players that have native AirPlay 2 capability, preventing duplicate AirPlay entries.
+This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for use on a Raspberry Pi, and focused on Sonos speakers. It starts the `airupnp-arm` service to enable AirPlay for any and all Sonos speakers and devices. The service is configured to exclude Sonos players that have native AirPlay 2 capability, preventing duplicate AirPlay entries.
 
 It has been tested on the following Raspberry Pi models:
 
 * Raspberry Pi 3 Model B Rev 1.2 (a02082)
 * Raspberry Pi 3 Model B Plus Rev 1.3 (a020d3)
-* Raspberry Pi 4 Model B Rev 1.1 (a03111)
-
-In order to build for ARM on Docker Hub, the Dockerfile makes use of the *crossbuild* capabilities provided by the Balena Raspbian distribution [2], which allows ARM images to be built under x86. (If you want to use this Dockerfile to build directly on a native ARM device, comment out or delete the two `cross-build` RUN statements.) 
+* Raspberry Pi 4 Model B Rev 1.1 (a03111) 
 
 The docker image name is `psychlist/docker-airconnect-arm` on Docker Hub [3].
 
@@ -100,6 +98,10 @@ docker run -d \
 ```
 
 Take a look at the AirConnect documentation [1] for more information on the available configuration values.
+
+## Building your own Docker images
+
+In order to build for ARM on Docker Hub, the Dockerfile makes use of the *crossbuild* capabilities provided by the Balena Raspbian distribution [2], which allows ARM images to be built under x86. (If you want to use this Dockerfile to build directly on a native ARM device, comment out or delete the two `cross-build` RUN statements.)
 
 ## Links
 
