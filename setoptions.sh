@@ -17,12 +17,12 @@
 #   Play:3 : S3
 #   Play:5 gen 1: S5
 #   PlayBar: S9
-#   ZonePlayers: ZP80, ZP90 (Connect), ZP100, ZP120 (Connect:Amp)
+#   ZonePlayers: ZP80, ZP90, and S15 (Connect), ZP100, ZP120 (Connect:Amp)
 #   (Sub: Sub -- not included as a target; cannot be standalone)
 
 if [ "$INC_MODELNUMBERS" != "NONE" ]
 then
-    echo "-o ${INC_MODELNUMBERS:-S1,S3,S5,S9,S12,ZP80,ZP90,ZP100,ZP120} \\"
+    echo "-o ${INC_MODELNUMBERS:-S1,S3,S5,S9,S12,ZP80,ZP90,S15,ZP100,ZP120} \\"
 fi
 
 # Model names to exclude. Supports partial matches.

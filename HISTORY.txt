@@ -1,3 +1,4 @@
+- 2020-04-19: Add device model S15 to included players
 - 2020-04-17: Update to airupnp v0.2.24.7
 - 2020-04-07: Update to airupnp v0.2.24.6
 - 2020-03-16: Update to airupnp v0.2.24.5
