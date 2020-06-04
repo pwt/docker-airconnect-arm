@@ -2,7 +2,9 @@
 
 This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for use on a Raspberry Pi, and focused on Sonos speakers. It starts the `airupnp-arm` service to enable AirPlay for any and all Sonos speakers and devices. The service is configured to exclude Sonos players that have native AirPlay 2 capability, preventing duplicate AirPlay entries.
 
-It has been tested on the following Raspberry Pi models:
+Optionally, the container uses a modified version of the `airupnp-arm` binary that improves performance with Apple Music and iTunes. See the discussion of the `SUPPRESS _FLUSH` option below.
+
+The image has been tested on the following Raspberry Pi models:
 
 * Raspberry Pi 3 Model B Rev 1.2 (a02082)
 * Raspberry Pi 3 Model B Plus Rev 1.3 (a020d3)
@@ -25,6 +27,7 @@ docker run -d \
   --net=host \
   --name=airconnect \
   --restart=always \
+  -e SUPPRESS_FLUSH=TRUE \
   psychlist/docker-airconnect-arm
 ```
 
@@ -37,12 +40,21 @@ docker run -d \
   --net=host \
   --name=airconnect \
   --restart=always \
+  -e SUPPRESS_FLUSH=TRUE \
   psychlist/docker-airconnect-arm
 ```
 
 ## Changing the configuration
 
 The container is started with a default configuration that should work very well for most Sonos installations. However, configuration settings can be overridden by passing in optional environment variables to the container when it's started.
+
+### The SUPPRESS_FLUSH option to improve Apple Music and iTunes responsiveness
+
+if the `SUPPRESS_FLUSH` environment variable is set on the Docker command line (as it is in the examples on this page), a **modified version** of the `airupnp-arm` binary is run. This binary is built by me, and it suppresses certain FLUSH commands. This change dramatically improves the responsiveness (changing tracks, changing position within a track) of AirConnect when streaming is performed from the Apple Music apps, or from iTunes.
+
+*These changes have been tested extensively with Sonos speakers, but may not work well with other types of speaker.*
+
+If you want to avoid this option and run the standard binary instead, just exclude the `-e SUPPRESS_FLUSH=TRUE` statements from the Docker command lines.
 
 ### Changing which speakers are included
 
@@ -61,6 +73,7 @@ docker run -d \
   --net=host \
   --name=airconnect \
   --restart=always \
+  -e SUPPRESS_FLUSH=TRUE \
   -e INC_MODELNUMBERS=S9,S1,S12 \
   psychlist/docker-airconnect-arm
 ```
@@ -72,6 +85,7 @@ docker run -d \
   --net=host \
   --name=airconnect \
   --restart=always \
+  -e SUPPRESS_FLUSH=TRUE \
   -e INC_MODELNUMBERS=NONE \
   -e EXC_MODELNUMBERS=S6 \
   psychlist/docker-airconnect-arm
@@ -92,6 +106,7 @@ docker run -d \
   --net=host \
   --name=airconnect \
   --restart=always \
+  -e SUPPRESS_FLUSH=TRUE \
   -e CODEC='mp3:320' \
   -e LATENCY='500:500:f' \
   psychlist/docker-airconnect-arm
