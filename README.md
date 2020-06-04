@@ -1,8 +1,8 @@
 # Add AirPlay to All Sonos Speakers Using AirConnect and Docker on a Raspberry Pi
 
-This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for use on a Raspberry Pi, and focused on Sonos speakers. It starts the `airupnp-arm` service to enable AirPlay for any and all Sonos speakers and devices. The service is configured to exclude Sonos players that have native AirPlay 2 capability, preventing duplicate AirPlay entries.
+This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for running on a Raspberry Pi, and optimised for use with Sonos speakers. It starts the `airupnp-arm` service which enables AirPlay for all Sonos speakers and devices. The service is configured by default only to include Sonos players that don't have native AirPlay 2 capability, preventing any duplicate AirPlay targets from being created.
 
-The container uses a modified version of the `airupnp-arm` binary, which greatly improves performance of AirConnect with Apple Music and iTunes. Use of this modified version is optional: see the discussion of the `SUPPRESS _FLUSH` option below.
+The container includes a modified version of the `airupnp-arm` binary that greatly improves performance of AirConnect with Apple Music and iTunes. Use of this modified version is optional: see the discussion of the `SUPPRESS_FLUSH` option below.
 
 The image has been tested on the following Raspberry Pi models:
 
@@ -31,7 +31,7 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
-If you subsequently want to update to a more recent version of the image: (1) pull the new image, (2) remove the container, then (3) start a new instance of the container. This will stop any currently-running AirPlay streams:
+If you subsequently want to update to a newer version of the image: (1) pull the new image, (2) remove the container, then (3) start a new instance of the container. This will stop any currently-running AirPlay streams:
 
 ```
 docker pull psychlist/docker-airconnect-arm
@@ -50,7 +50,7 @@ The container is started with a default configuration that should work very well
 
 ### Using the SUPPRESS_FLUSH option to improve Apple Music and iTunes responsiveness
 
-If the `SUPPRESS_FLUSH` environment variable is set on the Docker command line (as it is in the examples on this page), a **modified version** of the `airupnp-arm` binary is run. The modified binary is built by me and can be found in the `bin/` directory of this repository. It suppresses certain FLUSH commands, which greatly improves the responsiveness (changing tracks, changing position within a track) of AirConnect when streaming is performed from the Apple Music apps, or from iTunes.
+If the `SUPPRESS_FLUSH` environment variable is set on the Docker command line (as it is in the examples on this page), a **modified version** of the `airupnp-arm` binary is run. The modified binary is built by me and can be found in the `bin/` directory of this repository. It prevents certain FLUSH commands from being sent to the speakers, which greatly improves the responsiveness (changing tracks, changing position within a track) of AirConnect when streaming is performed from the Apple Music apps, or from iTunes.
 
 *The modified binary has been tested with Sonos speakers, but may not work well with other types of speaker.*
 
