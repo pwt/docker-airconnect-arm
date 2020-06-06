@@ -50,7 +50,7 @@ The container is started with a default configuration that should work very well
 
 ### Using the SUPPRESS_FLUSH option to improve Apple Music and iTunes responsiveness
 
-If the `SUPPRESS_FLUSH` environment variable is set on the Docker command line (as it is in the examples on this page), a **modified version** of the `airupnp-arm` binary is run. The modified binary is built by me and can be found in the `bin/` directory of this repository. It prevents certain FLUSH commands from being sent to the speakers, which greatly improves the responsiveness (changing tracks, changing position within a track) of AirConnect when streaming is performed from the Apple Music apps, or from iTunes.
+If the `SUPPRESS_FLUSH` environment variable is set to `TRUE` on the Docker command line (as it is in the examples on this page), a **modified version** of the `airupnp-arm` binary is run. The modified binary is built by me and can be found in the `bin/` directory of this repository. It prevents certain FLUSH commands from being sent to the speakers, which greatly improves the responsiveness (changing tracks, changing position within a track) of AirConnect when streaming is performed from the Apple Music apps, or from iTunes.
 
 *The modified binary has been tested with Sonos speakers, but may not work well with other types of speaker.*
 

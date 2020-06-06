@@ -1,3 +1,4 @@
+- 2020-06-06: Reduce default logging levels
 - 2020-06-04: Add SUPPRESS_FLUSH option and customised binary
 - 2020-05-28: Update to airupnp v0.2.26.1
 - 2020-05-27: Update to airupnp v0.2.26.0

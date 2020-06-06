@@ -9,8 +9,8 @@ RUN [ "cross-build-start" ]
 
 RUN apt-get update && \
     apt-get install -y wget multiarch-support && \
-    wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
-    dpkg -i libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
+#    wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
+#    dpkg -i libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
     wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/airupnp-arm && \
     wget https://raw.githubusercontent.com/pwt/docker-airconnect-arm/master/bin/airupnp-arm-modified && \
     chmod +x airupnp-arm && \
