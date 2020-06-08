@@ -4,6 +4,8 @@ This project provides a Docker container version of the excellent AirConnect [1]
 
 The container includes a modified version of the `airupnp-arm` binary that greatly improves performance of AirConnect with Apple Music and iTunes. Use of this modified version is optional: see the discussion of the `SUPPRESS_FLUSH` option below.
 
+AirConnect works with Sonos **S1** and **S2** software versions, and also works with 'split' S1/S2 Sonos systems.
+
 The image has been tested on the following Raspberry Pi models:
 
 * Raspberry Pi 3 Model B Rev 1.2 (a02082)
