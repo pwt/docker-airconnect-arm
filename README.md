@@ -6,6 +6,10 @@ The container includes a modified version of the `airupnp-arm` binary that great
 
 AirConnect works with Sonos **S1** and **S2** software versions, and also works with 'split' S1/S2 Sonos systems.
 
+The Docker container also configures a graphic for display by Sonos controller apps:
+
+![iOS Screenshot](assets/iOS_screenshot.png)
+
 The image has been tested on the following Raspberry Pi models:
 
 * Raspberry Pi 3 Model B Rev 1.2 (a02082)
@@ -14,7 +18,7 @@ The image has been tested on the following Raspberry Pi models:
 
 The docker image name is `psychlist/docker-airconnect-arm` on Docker Hub [3].
 
-Feedback and suggestions are welcome: feel free to use the issue at [4].
+Feedback and suggestions are welcome: feel free to use the issue at [4] for this purpose.
 
 ## Requirements
 
