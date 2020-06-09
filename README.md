@@ -10,6 +10,8 @@ The Docker container also configures a graphic for display by Sonos controller a
 
 ![iOS Screenshot](assets/iOS_screenshot.png)
 
+## Platforms
+
 The image has been tested on the following Raspberry Pi models:
 
 * Raspberry Pi 3 Model B Rev 1.2 (a02082)
@@ -26,7 +28,7 @@ A working Docker environment running on a Raspberry Pi. Internet access to pull 
 
 ## Usage
 
-The container is started as follows:
+The container is **started** as follows:
 
 ```
 docker run -d \
@@ -37,7 +39,7 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
-If you subsequently want to update to a newer version of the image: (1) pull the new image, (2) remove the container, then (3) start a new instance of the container. This will stop any currently-running AirPlay streams:
+If you subsequently want to **update to a newer version** of the image: (1) pull the new image, (2) remove the container, then (3) start a new instance of the container. This will stop any currently-running AirPlay streams:
 
 ```
 docker pull psychlist/docker-airconnect-arm
