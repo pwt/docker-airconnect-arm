@@ -12,7 +12,7 @@ The Docker container also configures a graphic for display by Sonos controller a
 
 ### AirCast support
 
-Optionally, `aircast-arm` can also be included, providing AirPlay capabilities for ChromeCast-enabled devices. This inclusion is experimental. To enable it, set the environment variable `INCLUDE_AIRCAST=TRUE` on the `docker run` command line. See the usage example below.
+Optionally, `aircast-arm` can be added, providing AirPlay capabilities for ChromeCast-enabled devices. This inclusion is experimental. To enable it, set the environment variable `INCLUDE_AIRCAST=TRUE` on the `docker run` command line. See the usage example below.
 
 ## Platforms
 
@@ -43,7 +43,8 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
-To include AirCast support, set the `INCLUDE_AIRCAST` environment variable to `TRUE` as shown below:
+To include AirCast support, set the `INCLUDE_AIRCAST` environment variable to `TRUE` in each `docker run` command line, as shown below:
+
 ```
 docker run -d \
   --net=host \
