@@ -10,6 +10,10 @@ The Docker container also configures a graphic for display by Sonos controller a
 
 ![iOS Screenshot](https://github.com/pwt/docker-airconnect-arm/blob/master/assets/iOS_screenshot.png)
 
+### AirCast support
+
+Optionally, `aircast-arm` can also be included, providing AirPlay capabilities for ChromeCast-enabled devices. This inclusion is experimental. To enable it, set the environment variable `INCLUDE_AIRCAST=TRUE` on the `docker run` command line. See the usage example below.
+
 ## Platforms
 
 The image has been tested on the following Raspberry Pi models:
@@ -36,6 +40,17 @@ docker run -d \
   --name=airconnect \
   --restart=always \
   -e SUPPRESS_FLUSH=TRUE \
+  psychlist/docker-airconnect-arm
+```
+
+To include AirCast support, set the `INCLUDE_AIRCAST` environment variable to `TRUE` as shown below:
+```
+docker run -d \
+  --net=host \
+  --name=airconnect \
+  --restart=always \
+  -e SUPPRESS_FLUSH=TRUE \
+  -e INCLUDE_AIRCAST=TRUE \
   psychlist/docker-airconnect-arm
 ```
 

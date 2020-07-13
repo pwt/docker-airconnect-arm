@@ -9,12 +9,14 @@ RUN [ "cross-build-start" ]
 
 RUN apt-get update && \
     apt-get install -y wget multiarch-support && \
-#    wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
-#    dpkg -i libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
+#   wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
+#   dpkg -i libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
     wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/airupnp-arm && \
     wget https://raw.githubusercontent.com/pwt/docker-airconnect-arm/master/bin/airupnp-arm-modified && \
     chmod +x airupnp-arm && \
-    chmod +x airupnp-arm-modified
+    chmod +x airupnp-arm-modified && \
+    wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/aircast-arm && \
+    chmod +x aircast-arm
 
 # setconfig.sh and setoptions.sh dynamically create the config.xml and options.txt files,
 # using environment variables (if present) to override defaults.
@@ -22,14 +24,21 @@ RUN apt-get update && \
 ADD ./setconfig.sh setconfig.sh
 ADD ./setoptions.sh setoptions.sh
 ADD ./setbinary.sh setbinary.sh
-RUN chmod +x setconfig.sh setoptions.sh setbinary.sh
+ADD ./run_aircast.sh run_aircast.sh
+RUN chmod +x setconfig.sh setoptions.sh setbinary.sh run_aircast.sh
 
 RUN [ "cross-build-end" ]
 ### End QEMU ARM emulation -------------------------------------------------------------
 
-# First, dynamically generate the config.xml and options.txt files,
+
+# 'run_aircast.sh` will run aircast-arm daemonised if 
+#    INCLUDE_AIRCAST is set.
+
+# Dynamically generate the config.xml and options.txt files,
 # then run either airupnp-arm or airupnp-arm-modified depending on whether
 # SUPPRESS_FLUSH is set
-CMD ./setconfig.sh > config.xml ; \
+
+CMD ./run_aircast.sh ; \
+    ./setconfig.sh > config.xml ; \
     ./setoptions.sh > options.txt ; \
     ./$(./setbinary.sh) -Z -x config.xml $(cat options.txt)
