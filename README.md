@@ -1,5 +1,37 @@
 # Add AirPlay to All Sonos Speakers Using AirConnect and Docker on a Raspberry Pi
 
+## Quickstart
+
+**Start** the container using the following command:
+
+```
+docker run -d \
+  --net=host \
+  --name=airconnect \
+  --restart=always \
+  -e SUPPRESS_FLUSH=TRUE \
+  -e INCLUDE_AIRCAST=TRUE \
+  psychlist/docker-airconnect-arm
+```
+
+**Update** the container using the commands:
+
+```
+docker pull psychlist/docker-airconnect-arm && \
+docker rm --force airconnect && \
+docker run -d \
+  --net=host \
+  --name=airconnect \
+  --restart=always \
+  -e SUPPRESS_FLUSH=TRUE \
+  -e INCLUDE_AIRCAST=TRUE \
+  psychlist/docker-airconnect-arm
+```
+
+These assume a working Docker installation on a Raspberry Pi.
+
+## Introduction
+
 This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for running on a Raspberry Pi, and optimised for use with Sonos speakers. It starts the `airupnp-arm` service which enables AirPlay for all Sonos speakers and devices. The service is configured by default only to include Sonos players that don't have native AirPlay 2 capability, preventing any duplicate AirPlay targets from being created.
 
 The container includes a modified version of the `airupnp-arm` binary that greatly improves performance of AirConnect with Apple Music and iTunes. Use of this modified version is optional: see the discussion of the `SUPPRESS_FLUSH` option below.
@@ -12,7 +44,7 @@ The Docker container also configures a graphic for display by Sonos controller a
 
 ### AirCast support
 
-Optionally, `aircast-arm` can be added, providing AirPlay capabilities for ChromeCast-enabled devices. This inclusion is experimental. To enable it, set the environment variable `INCLUDE_AIRCAST=TRUE` on the `docker run` command line. See the usage example below.
+Although this Docker image is primarily targeted and optimised for Sonos environments, it's possible to include in addition the `aircast-arm` service, providing AirPlay capabilities for ChromeCast-enabled devices. To enable AirCast in your container, set the environment variable `INCLUDE_AIRCAST=TRUE` when starting the container. See the usage example below.
 
 ## Platforms
 
@@ -20,7 +52,9 @@ The image has been tested on the following Raspberry Pi models:
 
 * Raspberry Pi 3 Model B Rev 1.2 (a02082)
 * Raspberry Pi 3 Model B Plus Rev 1.3 (a020d3)
-* Raspberry Pi 4 Model B Rev 1.1 (a03111) 
+* Raspberry Pi 4 Model B Rev 1.1 (a03111)
+
+It may work on other ARM-based devices that support Docker.
 
 The docker image name is `psychlist/docker-airconnect-arm` on Docker Hub [3].
 
