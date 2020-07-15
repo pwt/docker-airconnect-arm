@@ -1,4 +1,4 @@
-# Add AirPlay to All Sonos Speakers Using AirConnect and Docker on a Raspberry Pi
+# Add AirPlay to Sonos with AirConnect and Docker on a Raspberry Pi
 
 ## Quickstart
 
