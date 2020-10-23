@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 # Dynamically generates the config.xml file
 
@@ -15,6 +15,7 @@ echo "         <metadata>${METADATA:-1}</metadata>"
 echo "         <artwork>https://raw.githubusercontent.com/pwt/docker-airconnect-arm/master/airconnect-logo.png</artwork>"
 echo "         <latency>${LATENCY:-1000:1000:f}</latency>"
 echo "         <drift>${DRIFT:-1}</drift>"
+echo "         <max_players>${MAX_PLAYERS:-32}</max_players>"
 echo "     </common>"
 echo "     <main_log>${MAIN_LOG:-info}</main_log>"
 echo "     <upnp_log>${UPNP_LOG:-warn}</upnp_log>"

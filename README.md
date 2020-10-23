@@ -155,7 +155,7 @@ Note that the `-e INC_MODELNUMBERS=NONE` is required in order for the other opti
 
 The other available configuration parameters are:
 
-`CODEC, METADATA, LATENCY, DRIFT, MAIN_LOG, UPNP_LOG, UTIL_LOG, RAOP_LOG`
+`CODEC, METADATA, LATENCY, DRIFT, MAX_PLAYERS, MAIN_LOG, UPNP_LOG, UTIL_LOG, RAOP_LOG`
 
 So, for example, to change the codec to MP3 @ 256kb/s and to change the latency to 500ms/500ms, use the following command line:
 
@@ -170,7 +170,7 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
-Take a look at the AirConnect documentation [1] for more information on the available configuration values.
+Take a look at the AirConnect documentation [1] (in the Config File Parameters section) for more information on the available configuration values.
 
 ## Building your own Docker images
 
