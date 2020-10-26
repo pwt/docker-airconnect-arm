@@ -28,7 +28,8 @@ ADD ./setconfig.sh setconfig.sh
 ADD ./setoptions.sh setoptions.sh
 ADD ./setbinary.sh setbinary.sh
 ADD ./run_aircast.sh run_aircast.sh
-RUN chmod +x setconfig.sh setoptions.sh setbinary.sh run_aircast.sh
+ADD ./setconfig_aircast.sh setconfig_aircast.sh
+RUN chmod +x setconfig.sh setoptions.sh setbinary.sh run_aircast.sh setconfig_aircast.sh
 
 RUN [ "cross-build-end" ]
 ### End QEMU ARM emulation -------------------------------------------------------------

@@ -4,5 +4,6 @@
 
 if [[ $INCLUDE_AIRCAST = "TRUE" ]]
 then
-    ./aircast-arm -z
+    ./setconfig_aircast.sh > config_aircast.xml
+    ./aircast-arm -z -x config_aircast.xml
 fi
