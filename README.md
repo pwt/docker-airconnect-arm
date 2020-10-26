@@ -8,7 +8,7 @@
 docker run -d \
   --net=host \
   --name=airconnect \
-  --restart=always \
+  --restart=unless-stopped \
   -e SUPPRESS_FLUSH=TRUE \
   -e INCLUDE_AIRCAST=TRUE \
   psychlist/docker-airconnect-arm
@@ -22,7 +22,7 @@ docker rm --force airconnect && \
 docker run -d \
   --net=host \
   --name=airconnect \
-  --restart=always \
+  --restart=unless-stopped \
   -e SUPPRESS_FLUSH=TRUE \
   -e INCLUDE_AIRCAST=TRUE \
   psychlist/docker-airconnect-arm
@@ -72,7 +72,7 @@ The container is **started** as follows:
 docker run -d \
   --net=host \
   --name=airconnect \
-  --restart=always \
+  --restart=unless-stopped \
   -e SUPPRESS_FLUSH=TRUE \
   psychlist/docker-airconnect-arm
 ```
@@ -83,7 +83,7 @@ To include AirCast support, set the `INCLUDE_AIRCAST` environment variable to `T
 docker run -d \
   --net=host \
   --name=airconnect \
-  --restart=always \
+  --restart=unless-stopped \
   -e SUPPRESS_FLUSH=TRUE \
   -e INCLUDE_AIRCAST=TRUE \
   psychlist/docker-airconnect-arm
@@ -97,7 +97,7 @@ docker rm --force airconnect
 docker run -d \
   --net=host \
   --name=airconnect \
-  --restart=always \
+  --restart=unless-stopped \
   -e SUPPRESS_FLUSH=TRUE \
   psychlist/docker-airconnect-arm
 ```
@@ -130,7 +130,7 @@ Required environment variables and their values are supplied using the `-e` opti
 docker run -d \
   --net=host \
   --name=airconnect \
-  --restart=always \
+  --restart=unless-stopped \
   -e SUPPRESS_FLUSH=TRUE \
   -e INC_MODELNUMBERS=S9,S1,S12 \
   psychlist/docker-airconnect-arm
@@ -142,7 +142,7 @@ Or, to include all UPnP devices except second generation Play:5s, use:
 docker run -d \
   --net=host \
   --name=airconnect \
-  --restart=always \
+  --restart=unless-stopped \
   -e SUPPRESS_FLUSH=TRUE \
   -e INC_MODELNUMBERS=NONE \
   -e EXC_MODELNUMBERS=S6 \
@@ -163,7 +163,7 @@ So, for example, to change the codec to MP3 @ 256kb/s and to change the latency 
 docker run -d \
   --net=host \
   --name=airconnect \
-  --restart=always \
+  --restart=unless-stopped \
   -e SUPPRESS_FLUSH=TRUE \
   -e CODEC='mp3:320' \
   -e LATENCY='500:500:f' \
