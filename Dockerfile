@@ -11,14 +11,11 @@ RUN apt-get update && \
     apt-get install -y wget multiarch-support && \
 #   wget http://security.debian.org/debian-security/pool/updates/main/o/openssl/libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
 #   dpkg -i libssl1.0.0_1.0.1t-1+deb8u12_armhf.deb && \
-#   wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/airupnp-arm && \
-#   Temporarily pin to v0.2.28.1 ##########################
-    wget https://github.com/philippe44/AirConnect/raw/6fc84b42f16d65b8e0c2c61e0f9e7ffd781c638c/bin/airupnp-arm && \
+    wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/airupnp-arm && \
     wget https://raw.githubusercontent.com/pwt/docker-airconnect-arm/master/bin/airupnp-arm-modified && \
+    wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/aircast-arm && \
     chmod +x airupnp-arm && \
     chmod +x airupnp-arm-modified && \
-#   wget https://raw.githubusercontent.com/philippe44/AirConnect/master/bin/aircast-arm && \
-    wget https://github.com/philippe44/AirConnect/raw/6fc84b42f16d65b8e0c2c61e0f9e7ffd781c638c/bin/aircast-arm && \
     chmod +x aircast-arm
 
 # setconfig.sh and setoptions.sh dynamically create the config.xml and options.txt files,
