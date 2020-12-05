@@ -40,7 +40,7 @@ AirConnect works with Sonos **S1** and **S2** software versions, and also works 
 
 The Docker container also configures a graphic for display by Sonos controller apps:
 
-![iOS Screenshot](https://github.com/pwt/docker-airconnect-arm/blob/master/assets/iOS_screenshot.png)
+![AirConnect Logo](https://github.com/pwt/docker-airconnect-arm/blob/master/assets/images/airconnect-logo-smaller.png)
 
 ### AirCast support
 
