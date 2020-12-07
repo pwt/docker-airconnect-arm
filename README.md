@@ -40,7 +40,7 @@ AirConnect works with Sonos **S1** and **S2** software versions, and also works 
 
 The Docker container also configures a graphic for display by Sonos controller apps:
 
-![AirConnect Logo](https://github.com/pwt/docker-airconnect-arm/blob/master/assets/images/airconnect-logo-smaller.png)
+![AirConnect Logo](https://github.com/pwt/docker-airconnect-arm/blob/master/assets/images/airconnect-logo-festive-smaller.png)
 
 ### AirCast support
 
@@ -150,6 +150,20 @@ docker run -d \
 ```
 
 Note that the `-e INC_MODELNUMBERS=NONE` is required in order for the other options to be effective.
+
+### Changing the artwork displayed by the Sonos controller apps
+
+Use the `ARTWORK` environment variable to point to an image URL of your choice, instead of the default artwork supplied. The image must be available to the speakers and controllers over HTTP/S. For example:
+
+```
+docker run -d \
+  --net=host \
+  --name=airconnect \
+  --restart=unless-stopped \
+  -e ARTWORK=https://raw.githubusercontent.com/pwt/docker-airconnect-arm/master/airconnect-logo.png \
+  -e SUPPRESS_FLUSH=TRUE \
+  psychlist/docker-airconnect-arm
+```
 
 ### Other configuration settings
 
