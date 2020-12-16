@@ -1,3 +1,4 @@
+- 2020-12-16: Update to AirConnect v0.2.42.1
 - 2020-12-13: Update to AirConnect v0.2.41.2
 - 2020-12-10: Update to AirConnect v0.2.41.0
 - 2020-12-07: Add 'ARTWORK' environment variable
