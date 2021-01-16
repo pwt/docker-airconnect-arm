@@ -28,7 +28,15 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
-These assume a working Docker installation on a Raspberry Pi.
+These assume a working Docker installation on a Raspberry Pi. If you first need to **install Docker**, the steps are:
+
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker <your-user>
+```
+
+In the final command above, replace `<your-user>`, with your Raspberry Pi user name (perhaps `pi`), then **start a new terminal** for the command to take effect.
 
 ## Introduction
 
