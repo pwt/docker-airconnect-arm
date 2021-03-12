@@ -16,6 +16,12 @@ echo "         <artwork>https://raw.githubusercontent.com/pwt/docker-airconnect-
 echo "         <latency>${LATENCY:-1000:1000:f}</latency>"
 echo "         <drift>${DRIFT:-1}</drift>"
 echo "         <max_players>${MAX_PLAYERS:-32}</max_players>"
+if [ "$SUPPRESS_FLUSH" ]
+then
+echo "         <flush>0</flush>"
+else
+echo "         <flush>1</flush>"
+fi
 echo "     </common>"
 echo "     <main_log>${MAIN_LOG:-info}</main_log>"
 echo "     <util_log>${UTIL_LOG:-warn}</util_log>"
