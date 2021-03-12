@@ -18,24 +18,19 @@ RUN apt-get update && \
 
 # setconfig.sh and setoptions.sh dynamically create the config.xml and options.txt files,
 # using environment variables (if present) to override defaults.
-# setbinary determines whicn binary to use.
 ADD ./setconfig.sh setconfig.sh
 ADD ./setoptions.sh setoptions.sh
-ADD ./setbinary.sh setbinary.sh
 ADD ./run_aircast.sh run_aircast.sh
 ADD ./setconfig_aircast.sh setconfig_aircast.sh
-RUN chmod +x setconfig.sh setoptions.sh setbinary.sh run_aircast.sh setconfig_aircast.sh
+RUN chmod +x setconfig.sh setoptions.sh run_aircast.sh setconfig_aircast.sh
 
 RUN [ "cross-build-end" ]
 ### End QEMU ARM emulation -------------------------------------------------------------
 
 # 'run_aircast.sh` will run aircast-arm daemonised if
 #    INCLUDE_AIRCAST is set.
-# Dynamically generate the config.xml and options.txt files,
-# then run either airupnp-arm or airupnp-arm --noflush depending on whether
-# SUPPRESS_FLUSH is set
 
 CMD ./run_aircast.sh ; \
     ./setconfig.sh > config.xml ; \
     ./setoptions.sh > options.txt ; \
-    ./$(./setbinary.sh) -Z -x config.xml $(cat options.txt)
+    ./airupnp-arm -Z -x config.xml $(cat options.txt)
