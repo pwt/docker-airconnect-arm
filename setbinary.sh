@@ -5,7 +5,7 @@
 
 if [[ ${SUPPRESS_FLUSH} == TRUE ]];
 then
-    echo "airupnp-arm-modified"
+    echo "airupnp-arm --noflush"
 else
     echo "airupnp-arm"
 fi

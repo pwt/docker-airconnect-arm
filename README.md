@@ -42,8 +42,6 @@ In the final command above, replace `<your-user>`, with your Raspberry Pi user n
 
 This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for running on a Raspberry Pi, and optimised for use with Sonos speakers. It starts the `airupnp-arm` service which enables AirPlay for all Sonos speakers and devices. The service is configured by default only to include Sonos players that don't have native AirPlay 2 capability, preventing any duplicate AirPlay targets from being created.
 
-The container includes a modified version of the `airupnp-arm` binary that greatly improves performance of AirConnect with Apple Music and iTunes. Use of this modified version is optional: see the discussion of the `SUPPRESS_FLUSH` option below.
-
 AirConnect works with Sonos **S1** and **S2** software versions, and also works with 'split' S1/S2 Sonos systems.
 
 The Docker container also configures a graphic for display by Sonos controller apps:
@@ -116,11 +114,11 @@ The container is started with a default configuration that should work very well
 
 ### Using the SUPPRESS_FLUSH option to improve Apple Music and iTunes responsiveness
 
-If the `SUPPRESS_FLUSH` environment variable is set to `TRUE` on the Docker command line (as it is in the examples on this page), a **modified version** of the `airupnp-arm` binary is run. The modified binary is built by me and can be found in the `bin/` directory of this repository. It prevents certain FLUSH commands from being sent to the speakers, which greatly improves the responsiveness (changing tracks, changing position within a track) of AirConnect when streaming is performed from the Apple Music apps, or from iTunes.
+If the `SUPPRESS_FLUSH` environment variable is set to `TRUE` on the Docker command line (as it is in the examples on this page), AirConnect is run with the `--noflush` option, which greatly improves its responsiveness (changing tracks, changing position within a track) when streaming from Apple apps.
 
-*The modified binary has been tested with Sonos speakers, but may not work well with other types of speaker.*
+*This option works well with Sonos speakers, but may not work well with other types of speaker.*
 
-If you prefer not to use this option, and run the standard binary instead, just exclude the `-e SUPPRESS_FLUSH=TRUE` statements from the Docker command lines. The Docker image contains both the modified and unmodified forms of the binary.
+If you prefer not to use this option just omit the `-e SUPPRESS_FLUSH=TRUE` statements from the Docker command lines.
 
 ### Changing which speakers are included
 

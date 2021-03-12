@@ -9,11 +9,9 @@ RUN [ "cross-build-start" ]
 
 RUN apt-get update && \
     apt-get install -y wget multiarch-support && \
-    wget https://github.com/philippe44/AirConnect/raw/0.2.43.1/bin/airupnp-arm && \
-    wget https://raw.githubusercontent.com/pwt/docker-airconnect-arm/master/bin/airupnp-arm-modified && \
-    wget https://github.com/philippe44/AirConnect/raw/0.2.43.1/bin/aircast-arm && \
+    wget https://github.com/philippe44/AirConnect/raw/0.2.50.1/bin/airupnp-arm && \
+    wget https://github.com/philippe44/AirConnect/raw/0.2.50.1/bin/aircast-arm && \
     chmod +x airupnp-arm && \
-    chmod +x airupnp-arm-modified && \
     chmod +x aircast-arm
 
 # setconfig.sh and setoptions.sh dynamically create the config.xml and options.txt files,
@@ -32,7 +30,7 @@ RUN [ "cross-build-end" ]
 # 'run_aircast.sh` will run aircast-arm daemonised if
 #    INCLUDE_AIRCAST is set.
 # Dynamically generate the config.xml and options.txt files,
-# then run either airupnp-arm or airupnp-arm-modified depending on whether
+# then run either airupnp-arm or airupnp-arm --noflush depending on whether
 # SUPPRESS_FLUSH is set
 
 CMD ./run_aircast.sh ; \
