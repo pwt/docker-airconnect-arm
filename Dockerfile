@@ -2,7 +2,7 @@
 # Remove the 'cross-buld' commands to build on a native ARM host
 
 # Balena base image required for cross-build capabilities
-FROM balenalib/raspberrypi3:stretch
+FROM balenalib/raspberrypi3:buster
 
 ### Run commands within QEMU ARM cross-build emulation ---------------------------------
 RUN [ "cross-build-start" ]
