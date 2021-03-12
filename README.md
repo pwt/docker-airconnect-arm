@@ -114,7 +114,7 @@ The container is started with a default configuration that should work very well
 
 ### Using the SUPPRESS_FLUSH option to improve Apple Music and iTunes responsiveness
 
-If the `SUPPRESS_FLUSH` environment variable is set to `TRUE` on the Docker command line (as it is in the examples on this page), AirConnect is run with the `--noflush` option, which greatly improves its responsiveness (changing tracks, changing position within a track) when streaming from Apple apps.
+If the `SUPPRESS_FLUSH` environment variable is set to `TRUE` on the Docker command line (as it is in the examples on this page), the airupnp service is run with the `--noflush` option, which greatly improves AirConnect's responsiveness (changing tracks, changing position within a track) when streaming from Apple apps.
 
 *This option works well with Sonos speakers, but may not work well with other types of speaker.*
 
