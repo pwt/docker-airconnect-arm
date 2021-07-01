@@ -1,3 +1,4 @@
+- 2021-07-01: Update to AirConnect v0.2.50.5
 - 2021-03-12: Update to AirConnect v0.2.50.1
               Remove custom binary in favour of using '--noflush' option
 - 2021-01-15: Update to AirConnect v0.2.43.1

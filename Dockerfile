@@ -10,9 +10,9 @@ RUN [ "cross-build-start" ]
 RUN apt-get update && \
     apt-get install -y wget multiarch-support && \
 #    wget https://github.com/philippe44/AirConnect/raw/0.2.50.1/bin/airupnp-arm && \
-    wget https://github.com/philippe44/AirConnect/raw/05b0f6a6acde8f43f414361482f4d7c4f0f37370/bin/airupnp-arm && \
+    wget https://github.com/philippe44/AirConnect/raw/eba1a15cac93be9f01e51f84097ad1906167a96f/bin/airupnp-arm && \
 #    wget https://github.com/philippe44/AirConnect/raw/0.2.50.1/bin/aircast-arm && \
-    wget https://github.com/philippe44/AirConnect/raw/05b0f6a6acde8f43f414361482f4d7c4f0f37370/bin/aircast-arm && \
+    wget https://github.com/philippe44/AirConnect/raw/eba1a15cac93be9f01e51f84097ad1906167a96f/bin/aircast-arm && \
     chmod +x airupnp-arm && \
     chmod +x aircast-arm
 
