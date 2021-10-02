@@ -108,6 +108,21 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
+### Platform Warnings
+
+If, on starting the container, there is a warning message along the lines of `WARNING: The requested image's platform (linux/arm/v7) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`, then you can specify the `platform` on the `docker run` command line to suppress the warning:
+
+```
+docker run -d \
+  --platform=linux/arm/v7 \
+  --net=host \
+  --name=airconnect \
+  --restart=unless-stopped \
+  -e SUPPRESS_FLUSH=TRUE \
+  -e INCLUDE_AIRCAST=TRUE \
+  psychlist/docker-airconnect-arm
+```
+
 ## Changing the configuration
 
 The container is started with a default configuration that should work very well for most Sonos installations. However, configuration settings can be overridden by passing in optional environment variables to the container when it's started.
