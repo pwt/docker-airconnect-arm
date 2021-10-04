@@ -56,6 +56,7 @@ Although this Docker image is primarily targeted and optimised for Sonos environ
 
 The image has been tested on the following Raspberry Pi models:
 
+* Raspberry Pi Zero W Rev 1.1 (90000c1)
 * Raspberry Pi 3 Model B Rev 1.2 (a02082)
 * Raspberry Pi 3 Model B Plus Rev 1.3 (a020d3)
 * Raspberry Pi 4 Model B Rev 1.1 (a03111)

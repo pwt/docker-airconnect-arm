@@ -1,3 +1,5 @@
+- 2021-10-04: Switch to Alpine base image (reduces image size)
+              Add support for Raspberry Pi Zero W
 - 2021-10-01: Update to AirConnect v0.2.51.1
 - 2021-07-01: Update to AirConnect v0.2.50.5
 - 2021-03-12: Update to AirConnect v0.2.50.1
