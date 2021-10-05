@@ -20,7 +20,9 @@ ADD ./setconfig.sh setconfig.sh
 ADD ./setoptions.sh setoptions.sh
 ADD ./run_aircast.sh run_aircast.sh
 ADD ./setconfig_aircast.sh setconfig_aircast.sh
-RUN chmod +x setconfig.sh setoptions.sh run_aircast.sh setconfig_aircast.sh
+ADD ./setoptions_aircast.sh setoptions_aircast.sh
+RUN chmod +x setconfig.sh setoptions.sh run_aircast.sh setconfig_aircast.sh \
+             setoptions_aircast.sh
 
 RUN [ "cross-build-end" ]
 ### End QEMU ARM emulation -------------------------------------------------------------

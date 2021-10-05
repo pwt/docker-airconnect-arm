@@ -147,6 +147,12 @@ If the `SUPPRESS_FLUSH` environment variable is set to `TRUE` on the Docker comm
 
 If you prefer not to use this option just omit the `-e SUPPRESS_FLUSH=TRUE` statements from the Docker command lines.
 
+### Selecting the network interface
+
+If your Raspberry Pi has multiple network interfaces, e.g., you're using both the wired and wireless interfaces, it's possible to specify which interface AirConnect binds to using the `BIND_IP` environment variable.
+
+For example, add the following to the `docker run` command line options: `-e BIND_IP=192.168.0.50`, where the IP address specified is the one assigned to your chosen interface.
+
 ### Changing which speakers are included
 
 The container is configured to include only Sonos devices that do not natively support AirPlay2. Specifically, the following Sonos devices are included: Play:1, Play:3, Play:5 (first generation), PlayBar, ZP80, Connect (ZP90), ZP100 and Connect:Amp (ZP120). All other Sonos and non-Sonos UPnP devices discovered on the network will be ignored.

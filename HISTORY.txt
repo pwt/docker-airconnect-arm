@@ -1,3 +1,4 @@
+- 2021-10-05: Add ability to select host network interface using 'BIND_IP'
 - 2021-10-04: Switch to Alpine base image (reduces image size)
               Add support for Raspberry Pi Zero W
               Add support for Raspberry Pi Model B

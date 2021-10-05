@@ -1,13 +1,16 @@
 #!/bin/bash
 
 # Set the command line options for airupnp using env. variables
-# Allows for options to be omitted completely by setting vars to 'NONE'
-# Allows for options to be set, by including values for the vars
-# Allows for defaults to be used, by not seeting the vars
-
 # Redirect the output of this script to the required options file.
 
 # ---
+
+
+# Which local port (IP address) to bind to
+if [ "$BIND_IP" ]
+then
+    echo -n "-b ${BIND_IP} "
+fi
 
 # Strict list of model numbers to include. Exact matches. Case sensitive.
 # **Overrides** the '-m' and '-n' options completely.
@@ -22,17 +25,17 @@
 
 if [ "$INC_MODELNUMBERS" != "NONE" ]
 then
-    echo "-o ${INC_MODELNUMBERS:-S1,S3,S5,S9,S12,ZP80,ZP90,S15,ZP100,ZP120} \\"
+    echo -n "-o ${INC_MODELNUMBERS:-S1,S3,S5,S9,S12,ZP80,ZP90,S15,ZP100,ZP120} "
 fi
 
 # Model names to exclude. Supports partial matches.
-if [ "$EXC_MODELNAMES" != "NONE" ]
+if [ "$EXC_MODELNAMES" ]
 then
-    echo "-m ${EXC_MODELNAMES:-} \\"
+    echo -n  "-m ${EXC_MODELNAMES:-} "
 fi
 
 # Model numbers to exclude. Supports partial matches.
-if [ "$EXC_MODELNUMBERS" != "NONE" ]
+if [ "$EXC_MODELNUMBERS" ]
 then
-    echo "-n ${EXC_MODELNUMBERS:-} \\"
+    echo -n "-n ${EXC_MODELNUMBERS:-} "
 fi
