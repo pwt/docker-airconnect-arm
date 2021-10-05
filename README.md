@@ -2,7 +2,23 @@
 
 ## Quickstart
 
-**Start** the container using the following command:
+### Installing Docker
+
+**If you already have a working Docker installation on your Raspberry Pi, you can ignore this step.**
+
+The commands to install Docker using its install script are shown below. In the final command above, replace `<your-user>`, with your Raspberry Pi user name (perhaps `pi`).
+
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+sudo usermod -aG docker <your-user>
+```
+
+Now **start a new terminal** for the final command to take effect. It's possible you will also have to reboot your device to start the Docker service correctly.
+
+### Starting
+
+Start the container using the following command line:
 
 ```
 docker run -d \
@@ -14,7 +30,9 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
-**Update** the container using the commands:
+### Updating
+
+Update the container using the following commands:
 
 ```
 docker pull psychlist/docker-airconnect-arm && \
@@ -28,19 +46,11 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
-These assume a working Docker installation on a Raspberry Pi. If you first need to **install Docker**, the steps are:
-
-```
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker <your-user>
-```
-
-In the final command above, replace `<your-user>`, with your Raspberry Pi user name (perhaps `pi`), then **start a new terminal** for the command to take effect.
-
 ## Introduction
 
-This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for running on a Raspberry Pi, and optimised for use with Sonos speakers. It starts the `airupnp-arm` service which enables AirPlay for all Sonos speakers and devices. The service is configured by default only to include Sonos players that don't have native AirPlay 2 capability, preventing any duplicate AirPlay targets from being created.
+This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for running on a Raspberry Pi, and optimised for use with Sonos speakers. The container image is based on Alpline Linux and its total size is about 90MB.
+
+The docker-airconnect-arm container hosts the AirConnect `airupnp-arm` service which enables AirPlay for all Sonos speakers and devices. The service is configured by default only to include Sonos players that don't have native AirPlay 2 capability, preventing any duplicate AirPlay targets from being created.
 
 AirConnect works with Sonos **S1** and **S2** software versions, and also works with 'split' S1/S2 Sonos systems.
 
@@ -50,12 +60,13 @@ The Docker container also configures a graphic for display by Sonos controller a
 
 ### AirCast support
 
-Although this Docker image is primarily targeted and optimised for Sonos environments, it's possible to include in addition the `aircast-arm` service, providing AirPlay capabilities for ChromeCast-enabled devices. To enable AirCast in your container, set the environment variable `INCLUDE_AIRCAST=TRUE` when starting the container. See the usage example below.
+Although this Docker image is primarily targeted and optimised for Sonos environments, it's possible to include in addition the `aircast-arm` service, providing AirPlay capabilities for ChromeCast devices. To enable AirCast in your container, set the environment variable `INCLUDE_AIRCAST=TRUE` when starting the container. See the usage example below.
 
 ## Platforms
 
 The image has been tested on the following Raspberry Pi models:
 
+* Raspberry Pi Model B Rev 2 (000f)
 * Raspberry Pi Zero W Rev 1.1 (90000c1)
 * Raspberry Pi 3 Model B Rev 1.2 (a02082)
 * Raspberry Pi 3 Model B Plus Rev 1.3 (a020d3)
@@ -69,7 +80,7 @@ Feedback and suggestions are welcome: feel free to use the issue at [4] for this
 
 ## Requirements
 
-A working Docker environment running on a Raspberry Pi. Internet access to pull the Docker image.
+A working Docker environment running on a suitable Raspberry Pi connected to the same network as the target speakers. Internet access is required to pull the Docker image.
 
 ## Usage
 
@@ -210,7 +221,7 @@ Take a look at the AirConnect documentation [1] (in the Config File Parameters s
 
 ## Building your own Docker images
 
-In order to build for ARM on x86 hosts, the Dockerfile makes use of the *crossbuild* capabilities provided by the Balena Raspbian distribution [2], which allows ARM images to be built under x86. (If you want to use this Dockerfile to build directly on a native ARM device, comment out or delete the two `cross-build` RUN statements.)
+In order to build for ARM on x86 hosts, the Dockerfile makes use of the *crossbuild* capabilities provided by the Balena [2] base image for Alpine Linux , which allows ARM images to be built under x86. (If you want to use this Dockerfile to build directly on a native ARM host, comment out or remove the two `cross-build` RUN statements.)
 
 ## Links
 
