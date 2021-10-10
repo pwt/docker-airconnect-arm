@@ -10,3 +10,4 @@ performed locally and manually pushed.
 3. Scan the image for vulnerabilities: docker scan psychlist/docker-airconnect-arm
 4. Push to Docker Hub
    docker push psychlist/docker-airconnect-arm
+5. Update the Docker Hub README if necessary
