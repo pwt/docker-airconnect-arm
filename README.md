@@ -6,7 +6,7 @@
 
 **If you already have a working Docker installation on your Raspberry Pi, you can ignore this step.**
 
-The commands to install Docker using its install script are shown below. In the final command above, replace `<your-user>`, with your Raspberry Pi user name (perhaps `pi`).
+The commands to install Docker using its install script are shown below. In the final command below, replace `<your-user>`, with your Raspberry Pi user name (perhaps `pi`).
 
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh
@@ -48,7 +48,7 @@ docker run -d \
 
 ## Introduction
 
-This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for running on a Raspberry Pi, and optimised for use with Sonos speakers. The container image is based on Alpline Linux and its total size is about 90MB.
+This project provides a Docker container version of the excellent AirConnect [1] utility, suitable for running on a Raspberry Pi, and optimised for use with Sonos speakers. It provides a network bridge allowing Apple devices to send AirPlay audio to speakers and other devices that don't natively support AirPlay. The container image is based on Alpline Linux and its total size is about 90MB.
 
 The docker-airconnect-arm container hosts the AirConnect `airupnp-arm` service which enables AirPlay for all Sonos speakers and devices. The service is configured by default only to include Sonos players that don't have native AirPlay 2 capability, preventing any duplicate AirPlay targets from being created.
 
@@ -120,7 +120,7 @@ docker run -d \
   psychlist/docker-airconnect-arm
 ```
 
-### Platform Warnings
+### Docker 'platform' warnings
 
 If, on starting the container, there is a warning message along the lines of `WARNING: The requested image's platform (linux/arm/v7) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested`, then you can specify the `platform` on the `docker run` command line to suppress the warning:
 
