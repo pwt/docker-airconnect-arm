@@ -4,7 +4,7 @@
 
 if [[ $INCLUDE_AIRCAST = "TRUE" ]]
 then
-    ./setoptions_aircast.sh > options_aircast.txt
-    ./setconfig_aircast.sh > config_aircast.xml
-    ./aircast-arm-static -z -x config_aircast.xml $(cat options_aircast.txt)
+    ./setoptions_aircast.sh > ~/options_aircast.txt
+    ./setconfig_aircast.sh > ~/config_aircast.xml
+    ./aircast-arm-static -z -x ~/config_aircast.xml $(cat ~/options_aircast.txt)
 fi

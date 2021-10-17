@@ -1,4 +1,4 @@
-# Dockerfile that will build an arm32v7 image on an x86 build host
+# Dockerfile that will build an ARM image on an x86 build host
 # Remove the 'cross-buld' commands to build on a native ARM host
 
 # Balena base image required for cross-build capabilities
@@ -24,13 +24,18 @@ ADD ./setoptions_aircast.sh setoptions_aircast.sh
 RUN chmod +x setconfig.sh setoptions.sh run_aircast.sh setconfig_aircast.sh \
              setoptions_aircast.sh
 
+# Run container as non-root
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
 RUN [ "cross-build-end" ]
 ### End QEMU ARM emulation -------------------------------------------------------------
+
+USER appuser
 
 # 'run_aircast.sh` will run aircast-arm daemonised if
 #    INCLUDE_AIRCAST is set.
 
 CMD ./run_aircast.sh ; \
-    ./setconfig.sh > config.xml ; \
-    ./setoptions.sh > options.txt ; \
-    ./airupnp-arm-static -Z -x config.xml $(cat options.txt)
+    ./setconfig.sh > ~/config.xml ; \
+    ./setoptions.sh > ~/options.txt ; \
+    ./airupnp-arm-static -Z -x ~/config.xml $(cat ~/options.txt)
