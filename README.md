@@ -235,4 +235,4 @@ In order to build for ARM on x86 hosts, the Dockerfile makes use of the *crossbu
 [1] https://github.com/philippe44/AirConnect \
 [2] https://hub.docker.com/u/balenalib/ \
 [3] https://hub.docker.com/r/psychlist/docker-airconnect-arm \
-[4] https://github.com/pwt/docker-airconnect-arm/issues/5
+[4] [https://github.com/pwt/docker-airconnect-arm/issues/5](https://github.com/pwt/docker-airconnect-arm/issues/5)
