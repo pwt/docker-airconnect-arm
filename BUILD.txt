@@ -4,7 +4,7 @@ Image Build Instructions
 Automated Docker Hub builds have been retired as of June 2021, so builds must be
 performed locally and manually pushed.
 
-1. Ensure that Docker Desktop is running, on an x86 host
+1. Ensure that Docker Desktop is running, on an ARM host
 2. From the root of the repo, invoke:
    docker build . --tag psychlist/docker-airconnect-arm
 3. Scan the image for vulnerabilities: docker scan psychlist/docker-airconnect-arm

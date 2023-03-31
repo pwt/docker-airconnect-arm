@@ -4,8 +4,8 @@
 # Balena base image required for cross-build capabilities
 FROM balenalib/raspberry-pi-alpine:3.11
 
-### Run commands within QEMU ARM cross-build emulation ---------------------------------
-RUN [ "cross-build-start" ]
+### Run commands within QEMU ARM cross-build emulation, if required  ###########
+# RUN [ "cross-build-start" ]
 
 RUN install_packages wget
 
@@ -30,8 +30,8 @@ RUN chmod +x setconfig.sh setoptions.sh run_aircast.sh setconfig_aircast.sh \
 # Run container as non-root
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
-RUN [ "cross-build-end" ]
-### End QEMU ARM emulation -------------------------------------------------------------
+# RUN [ "cross-build-end" ]
+### End QEMU ARM emulation  ####################################################
 
 USER appuser
 
