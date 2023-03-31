@@ -7,7 +7,7 @@ performed locally and manually pushed.
 1. Ensure that Docker Desktop is running, on an ARM host
 2. From the root of the repo, invoke:
    docker build . --tag psychlist/docker-airconnect-arm
-3. Scan the image for vulnerabilities: docker scan psychlist/docker-airconnect-arm
+3. Scan the image for vulnerabilities: docker scout cves psychlist/docker-airconnect-arm
 4. Push to Docker Hub
    docker push psychlist/docker-airconnect-arm
 5. Update the Docker Hub README if necessary

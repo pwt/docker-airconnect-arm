@@ -7,7 +7,8 @@ FROM balenalib/raspberry-pi-alpine:3.11
 ### Run commands within QEMU ARM cross-build emulation, if required  ###########
 # RUN [ "cross-build-start" ]
 
-RUN install_packages wget
+# RUN install_packages wget
+RUN apk update && apk -U upgrade && apk add --no-cache wget
 
 RUN wget https://github.com/philippe44/AirConnect/raw/master/bin/airupnp-linux-arm-static && \
     wget https://github.com/philippe44/AirConnect/raw/master/bin/aircast-linux-arm-static && \
