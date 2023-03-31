@@ -9,13 +9,10 @@ FROM balenalib/raspberry-pi-alpine:3.11
 
 RUN install_packages wget
 
-# RUN wget https://github.com/philippe44/AirConnect/raw/0.2.51.1/bin/airupnp-arm-static && \
-#     wget https://github.com/philippe44/AirConnect/raw/0.2.51.1/bin/aircast-arm-static && \
-
-RUN wget https://github.com/philippe44/AirConnect/raw/14ecfa56f0e20b4a9e2615761ef34f7e92bc2128/bin/airupnp-arm-static && \
-    wget https://github.com/philippe44/AirConnect/raw/14ecfa56f0e20b4a9e2615761ef34f7e92bc2128/bin/aircast-arm-static && \
-    chmod +x airupnp-arm-static && \
-    chmod +x aircast-arm-static
+RUN wget https://github.com/philippe44/AirConnect/raw/master/bin/airupnp-linux-arm-static && \
+    wget https://github.com/philippe44/AirConnect/raw/master/bin/aircast-linux-arm-static && \
+    chmod +x airupnp-linux-arm-static && \
+    chmod +x aircast-linux-arm-static
 
 # setconfig.sh and setoptions.sh dynamically create the config.xml and options.txt files,
 # using environment variables (if present) to override defaults.
@@ -41,4 +38,4 @@ USER appuser
 CMD ./run_aircast.sh ; \
     ./setconfig.sh > ~/config.xml ; \
     ./setoptions.sh > ~/options.txt ; \
-    ./airupnp-arm-static -Z -x ~/config.xml $(cat ~/options.txt)
+    ./airupnp-linux-arm-static -Z -x ~/config.xml $(cat ~/options.txt)
