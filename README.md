@@ -228,7 +228,7 @@ Take a look at the AirConnect documentation [1] (in the Config File Parameters s
 
 ## Building your own Docker images
 
-In order to build for ARM on x86 hosts, the Dockerfile makes use of the *crossbuild* capabilities provided by the Balena [2] base image for Alpine Linux , which allows ARM images to be built under x86. (If you want to use this Dockerfile to build directly on a native ARM host, comment out or remove the two `cross-build` RUN statements.)
+If you wish to build the Docker image for ARM on an x86 host, the Dockerfile allows use of the *crossbuild* capabilities provided by the Balena [2] base image for Alpine Linux. Uncomment the two `cross-build` statements to enable this. 
 
 ## Links
 
