@@ -1,3 +1,6 @@
+- 2023-03-31: Update to AirConnect/AirCast v1.0.16
+              Switch default encoding from FLAC to WAV to circumvent Sonos 15.2 changes
+              Update Alpine Linux packages
 - 2022-01-12: Update to AirConnect v0.2.51.2
 - 2021-10-17: Run the container as a non-root user
 - 2021-10-05: Add ability to select host network interface using 'BIND_IP'

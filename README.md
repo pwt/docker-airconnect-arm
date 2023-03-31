@@ -1,11 +1,5 @@
 # Add AirPlay to Sonos with AirConnect and Docker on a Raspberry Pi
 
-# Important: Sonos 15.2 Update 30-Mar-2023
-
-**In the Sonos S2 v15.2 update released in late March, Sonos made a change that prevents AirConnect from working. Sonos S1 systems are currently unaffected.**
-
-I'm exploring a temporary workaround for this issue and will update the container image once the change has been tested.
-
 ## Quickstart
 
 ### Installing Docker
