@@ -2,18 +2,19 @@
 # Remove the 'cross-buld' commands to build on a native ARM host
 
 # Balena base image required for cross-build capabilities
-FROM balenalib/raspberry-pi-alpine:3.11
+FROM balenalib/raspberry-pi-alpine:3.18
 
 ### Run commands within QEMU ARM cross-build emulation, if required  ###########
 # RUN [ "cross-build-start" ]
 
 # RUN install_packages wget
-RUN apk update && apk -U upgrade && apk add --no-cache wget
+RUN apk update && apk -U upgrade && apk add --no-cache wget unzip
 
-RUN wget https://github.com/philippe44/AirConnect/raw/1.2.0/bin/airupnp-linux-armv6-static \
-        -O airupnp-linux-arm-static && chmod +x airupnp-linux-arm-static && \
-    wget https://github.com/philippe44/AirConnect/raw/1.2.0/bin/aircast-linux-armv6-static \
-        -O aircast-linux-arm-static && chmod +x aircast-linux-arm-static
+RUN wget https://github.com/philippe44/AirConnect/releases/download/1.3.0/AirConnect-1.3.0.zip && \
+    unzip AirConnect-1.3.0.zip airupnp-linux-armv6-static aircast-linux-armv6-static && \
+    rm AirConnect-1.3.0.zip && \
+    chmod +x airupnp-linux-armv6-static && \
+    chmod +x aircast-linux-armv6-static
 
 # setconfig.sh and setoptions.sh dynamically create the config.xml and options.txt files,
 # using environment variables (if present) to override defaults.
@@ -39,4 +40,4 @@ USER appuser
 CMD ./run_aircast.sh ; \
     ./setconfig.sh > ~/config.xml ; \
     ./setoptions.sh > ~/options.txt ; \
-    ./airupnp-linux-arm-static -Z -x ~/config.xml $(cat ~/options.txt)
+    ./airupnp-linux-armv6-static -Z -x ~/config.xml $(cat ~/options.txt)
