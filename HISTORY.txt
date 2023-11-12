@@ -1,3 +1,4 @@
+- 2023-11-12: Update to AirConnect v1.3.1 & revert to Alpine Linux 3.11
 - 2023-11-02: Update to AirConnect v1.3.0 & Alpine Linux 3.18
 - 2023-09-15: Update to AirConnect v1.2.0 and use ARMv6 static binaries
 - 2023-09-15: Revert to AirConnect 3 to restore ARMv6 support

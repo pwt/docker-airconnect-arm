@@ -2,7 +2,7 @@
 # Remove the 'cross-buld' commands to build on a native ARM host
 
 # Balena base image required for cross-build capabilities
-FROM balenalib/raspberry-pi-alpine:3.18
+FROM balenalib/raspberry-pi-alpine:3.11
 
 ### Run commands within QEMU ARM cross-build emulation, if required  ###########
 # RUN [ "cross-build-start" ]
@@ -10,9 +10,9 @@ FROM balenalib/raspberry-pi-alpine:3.18
 # RUN install_packages wget
 RUN apk update && apk -U upgrade && apk add --no-cache wget unzip
 
-RUN wget https://github.com/philippe44/AirConnect/releases/download/1.3.0/AirConnect-1.3.0.zip && \
-    unzip AirConnect-1.3.0.zip airupnp-linux-armv6-static aircast-linux-armv6-static && \
-    rm AirConnect-1.3.0.zip && \
+RUN wget https://github.com/philippe44/AirConnect/releases/download/1.3.1/AirConnect-1.3.1.zip && \
+    unzip AirConnect-1.3.1.zip airupnp-linux-armv6-static aircast-linux-armv6-static && \
+    rm AirConnect-1.3.1.zip && \
     chmod +x airupnp-linux-armv6-static && \
     chmod +x aircast-linux-armv6-static
 
