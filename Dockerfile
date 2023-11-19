@@ -10,9 +10,11 @@ FROM balenalib/raspberry-pi-alpine:3.11
 # RUN install_packages wget
 RUN apk update && apk -U upgrade && apk add --no-cache wget unzip
 
-RUN wget https://github.com/philippe44/AirConnect/releases/download/1.3.1/AirConnect-1.3.1.zip && \
-    unzip AirConnect-1.3.1.zip airupnp-linux-armv6-static aircast-linux-armv6-static && \
-    rm AirConnect-1.3.1.zip && \
+ARG VERSION=1.3.4
+
+RUN wget https://github.com/philippe44/AirConnect/releases/download/${VERSION}/AirConnect-${VERSION}.zip && \
+    unzip AirConnect-${VERSION}.zip airupnp-linux-armv6-static aircast-linux-armv6-static && \
+    rm AirConnect-${VERSION}.zip && \
     chmod +x airupnp-linux-armv6-static && \
     chmod +x aircast-linux-armv6-static
 
