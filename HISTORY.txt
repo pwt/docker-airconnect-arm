@@ -1,3 +1,4 @@
+- 2023-11-28: Update to AirConnect v1.5.0
 - 2023-11-21: Update to AirConnect v1.4.0
 - 2023-11-19: Update to AirConnect v1.3.4
 - 2023-11-12: Update to AirConnect v1.3.1 & revert to Alpine Linux 3.11
