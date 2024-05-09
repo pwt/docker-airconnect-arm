@@ -73,6 +73,8 @@ The image has been tested on the following Raspberry Pi models:
 * Raspberry Pi 3 Model B Plus Rev 1.3 (a020d3)
 * Raspberry Pi 4 Model B Rev 1.1 (a03111)
 
+**Note that an [issue](https://github.com/pwt/docker-airconnect-arm/issues/15) with very high CPU usage has been reported when running on a Raspberry Pi 5. This is under investigation.**
+
 It may work on other ARM-based devices that support Docker.
 
 The docker image name is `psychlist/docker-airconnect-arm` on Docker Hub [3].
